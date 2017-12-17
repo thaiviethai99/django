@@ -37,10 +37,10 @@ def about(request):
     result = dictfetchall(cursor)
     response = HttpResponse()
     for item in result:
-        for k, v in item.items():
-            # response.writelines(key)
-            if(k=='username'):
-                response.writelines (str(v)+'<br/>')
+        response.write(item.get('username')+'<br/>')
+        # for k, v in item.items():
+        #     if(k=='username'):
+        #         response.writelines (str(v)+'<br/>')
     #response.write(result['username'])
     return response
     
